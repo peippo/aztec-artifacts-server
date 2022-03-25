@@ -23,8 +23,9 @@ const initializeGame = () => {
 	const id = uuidv4();
 	gamesList[id] = {};
 	gamesList[id]["tiles"] = shuffleArray(tiles);
+	gamesList[id]["turn"] = 1;
 
-	return { id: id };
+	return { id: id, turn: 1 };
 };
 
 module.exports = initializeGame;

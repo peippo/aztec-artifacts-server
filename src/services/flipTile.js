@@ -6,7 +6,7 @@ const flipTile = (query) => {
 	if (!gamesList[gameId]) {
 		throw "Game not found!";
 	}
-	console.log(tileId);
+
 	const isFirst = typeof tileId === "string";
 	let revealedTiles = [];
 	let isMatch = false;
@@ -16,6 +16,7 @@ const flipTile = (query) => {
 			{ id: parseInt(tileId), symbol: gamesList[gameId]["tiles"][tileId] },
 		];
 	} else {
+		gamesList[gameId]["turn"] = gamesList[gameId]["turn"] + 1;
 		revealedTiles = tileId.map((id) => ({
 			id: parseInt(id),
 			symbol: gamesList[gameId]["tiles"][id],
@@ -23,7 +24,7 @@ const flipTile = (query) => {
 		isMatch = revealedTiles[0]["symbol"] === revealedTiles[1]["symbol"];
 	}
 
-	return { revealedTiles, isFirst, isMatch };
+	return { revealedTiles, isFirst, isMatch, turn: gamesList[gameId]["turn"] };
 };
 
 module.exports = flipTile;
