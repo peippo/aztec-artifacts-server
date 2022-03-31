@@ -1,5 +1,5 @@
 {
-	"name": "concentration-server",
+	"name": "aztec-artifacts-server",
 	"version": "1.0.0",
 	"description": "",
 	"main": "src/index.js",
